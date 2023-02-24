@@ -35,9 +35,9 @@ const user1={
     number: 30
   }
 }
-console.log(user1);
+//console.log(user1);
 
-//получить знач свойства, если ого есть. Способы:
+//получить знач свойства, если оно есть. Способы:
 //1 ||
 const addressUser1=user1.address||{}
 const streetUser1=addressUser1.street;
@@ -50,3 +50,22 @@ const streetUser2=user1.address&&user1.address.street
 //3 ?.
 const streetUser3=user1.address?.street
 //console.log(streetUser3);
+
+//-----conext this
+
+function aboutThis(){
+  console.log(this)
+}
+
+//aboutThis()//вернет объект Windows
+
+const objThis={
+  name: "Petya",
+  sayName(){
+    console.log(`My name ${this.name}`);
+  },
+  aboutThis //аналогично aboutThis: aboutThis
+}
+
+//objThis.aboutThis()// objThis
+//objThis.sayName()// Petya
