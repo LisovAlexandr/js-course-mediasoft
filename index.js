@@ -27,3 +27,26 @@ for (let keys in obj3){
   //console.log("ключ: "+keys+", знач: "+obj3[keys]);
 }//перебор массива
 
+
+const user1={
+  name: "Vasya",
+  address:{
+    street: "Pervaya",
+    number: 30
+  }
+}
+console.log(user1);
+
+//получить знач свойства, если ого есть. Способы:
+//1 ||
+const addressUser1=user1.address||{}
+const streetUser1=addressUser1.street;
+//console.log(streetUser1);
+
+//2 &&
+const streetUser2=user1.address&&user1.address.street
+//console.log(streetUser2);
+
+//3 ?.
+const streetUser3=user1.address?.street
+//console.log(streetUser3);
