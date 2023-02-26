@@ -1,4 +1,6 @@
-//работа с объектами
+
+
+//------работа с объектами
 const obj1={}//литерал
 obj1.name='kolya'//new key,value
 //console.log(obj1)
@@ -69,3 +71,62 @@ const objThis={
 
 //objThis.aboutThis()// objThis
 //objThis.sayName()// Petya
+
+
+// функции-конструкторы
+
+function User(name){
+  //this={} (неявно)
+  this.name = name
+  this.isAdmin = false
+  this.sayHi = function(){
+    console.log(`Hi, i am ${this.name}`);
+  }
+  //return this (неявно)
+}
+
+let userKolya=new User("Kolya")//создали колю с помощью конструктора
+
+//console.log(userKolya);
+//console.log(userKolya.name);
+//userKolya.sayHi()
+
+//-----объект Date
+
+const date =new Date() //в date сохраняется текующее дата время
+//console.log(+date);//получим милисекунды
+
+//------функции
+
+function sum(a,b){
+  return a+b
+}
+//console.log(sum(4,5));
+
+//стрелочные функции
+const minus=(a,b)=>a-b
+//console.log(minus(3,2));
+
+const minus2=(a,b)=>console.log(a-b);
+//minus2(4,2)
+
+//======прототипы
+
+const animal={
+  eat: true
+}
+//console.log(animal);
+const cat={
+  voice: "meow",
+  __proto__: animal
+}
+//console.log(cat.eat);
+
+//-----свойство prototype для функции-конструктора
+
+function Rabbit(name){
+  this.name=name;
+}
+Rabbit.prototype=animal //буквально сказали"когда создашь объект, прототипом выбери animal"
+const rabbitRodger=new Rabbit("Rodger")
+//console.log(rabbitRodger);
